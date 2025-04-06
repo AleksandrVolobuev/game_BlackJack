@@ -3,13 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Карточная игра 21 (BlackJack) — Играйте онлайн</title>
-
-    <!-- Мета-теги SEO -->
     <meta
       name="description"
-      content="Играйте в карточную игру 21 (BlackJack) онлайн. Простой интерфейс, увлекательный геймплей и плавная анимация."
+      content="Играйте в карточную игру BlackJack онлайн. Простой интерфейс, увлекательный геймплей и плавная анимация."
     />
     <meta
       name="keywords"
@@ -17,8 +13,6 @@
     />
     <meta name="author" content="Твоё Имя или Ник" />
     <meta name="theme-color" content="#222" />
-
-    <!-- Добавление favicon -->
     <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
     <link
       rel="icon"
@@ -26,11 +20,10 @@
       type="image/png"
       sizes="32x32"
     />
-
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script type="module" src="./assets/js/index.js"></script>
+    <title>Карточная игра 21 (BlackJack) — Играйте онлайн</title>
   </head>
-
   <body>
     <div class="video-background" aria-hidden="true">
       <video autoplay muted loop id="bg-video">
@@ -38,8 +31,6 @@
         Ваш браузер не поддерживает видео.
       </video>
     </div>
-
-    <!-- Аудиофайлы -->
     <audio
       id="card-sound"
       src="./assets/sounds/card.mp3"
@@ -66,40 +57,28 @@
       src="./assets/sounds/golos-knopka.mp3"
       preload="auto"
     ></audio>
-
-    <!--<audio
-      id="bg-music"
-      src="
-      https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/lm3gg8abeuDXCWxJmNGN5YjMlPFSL6NS47dkDoDG.mp3?"
-      preload="auto"
-    ></audio>-->
+    <div class="wrapper">
     <header>
-      <h1 class="title">Карточная игра 21 (BlackJack)</h1>
+      <h1 class="title">BlackJack</h1>
     </header>
-
     <main>
-      <div class="wrapper">
         <section class="scoreboard" aria-label="Информация об очках">
           <p class="score">Ваши очки: <span id="player-score">0</span></p>
           <p class="score">
             Очки противника: <span id="opponent-score">0</span>
           </p>
         </section>
-
         <section class="cards" aria-label="Карты игрока и противника">
           <div>
             <h2 class="cards-title">Ваши карты</h2>
             <div id="player-cards"></div>
           </div>
-
           <div>
             <h2 class="cards-title">Карты противника</h2>
             <div id="opponent-cards"></div>
           </div>
         </section>
-
         <p class="result result-hidden" aria-live="polite"></p>
-
         <section id="buttons" aria-label="Управление игрой">
           <button class="draw-button">Взять карту</button>
           <button class="pass-turn-button">Передать ход противнику</button>
@@ -115,11 +94,10 @@
             Ваш браузер не поддерживает аудио.
           </audio>
         </section>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Карточная игра BlackJack. Все права защищены.</p>
-    </footer>
+      </main>
+      <footer>
+        <p>&copy; 2025 Карточная игра BlackJack. Все права защищены.</p>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,308 @@
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Устанавливаем видео на задний план */
+  overflow: hidden;
+}
+
+#bg-video {
+  object-fit: cover;
+  /* Масштабируем видео, чтобы оно покрывало весь экран */
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Слегка затемняем фон, чтобы текст был виден */
+  min-height: 100vh;
+  /* Устанавливаем минимальную высоту для body */
+  display: flex;
+  flex-direction: column;
+  /* Устанавливаем вертикальное распределение */
+  justify-content: space-between;
+  /* Равномерно распределяем контент по экрану */
+}
+
+/* Сброс стилей для заголовков и параграфов */
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  /* Сбрасываем межстрочный интервал */
+}
+
+.title {
+  background: linear-gradient(45deg, rgb(255, 173, 173), rgb(93, 57, 255), rgb(255, 255, 153));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4vw;
+  font-weight: 900;
+  margin-bottom: 1vw;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: pulse 1.5s infinite alternate;
+  /* Эффект пульсации */
+}
+
+/* Определяем анимацию пульсации */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    /* Исходный размер */
+  }
+
+  50% {
+    transform: scale(0.994);
+    /* Увеличиваем размер */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Возвращаем в исходное состояние */
+  }
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.cards-title {
+  margin: 10px 0;
+  font-size: 3vw;
+  font-weight: 900;
+  background: linear-gradient(45deg, rgb(7, 31, 247), rgb(22, 255, 146), #ffff1c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* Добавляем тень */
+  animation: move 1s infinite alternate;
+  /* Добавляем анимацию */
+}
+
+.score {
+  font-size: 3vw;
+  color: chartreuse;
+  background: linear-gradient(45deg, red, orange, yellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  margin: 0 1vw;
+}
+
+.wrapper {
+  flex-grow: 1;
+  /* Контейнер с игрой будет занимать оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game {
+  flex-grow: 1;
+  /* Контейнер с игрой будет занимать оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  margin-top: 1vw;
+}
+
+#player-score,
+#opponent-score {
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+#player-cards,
+#opponent-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  box-sizing: border-box;
+
+}
+
+/* Основные стили для карты */
+.card {
+  width: 10vw;  /* Ширина карты — 10% от ширины экрана */
+  height: 15vw;  /* Высота карты — 15% от ширины экрана */
+  perspective: 1000px;
+  position: relative; /* Для правильного позиционирования картинок */
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1.2s;
+  position: relative;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front img,
+.card-back img {
+  width: 100%;
+  /* Картинка занимает всю ширину блока */
+  height: 100%;
+  /* Картинка занимает всю высоту блока */
+  object-fit: cover;
+  /* Картинка обрезается, чтобы заполнить блок, сохраняя пропорции */
+}
+
+/* Стили для "перевернутой" карты */
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  /* Разрешаем перенос кнопок на новые строки, если места не хватает */
+  justify-content: center;
+  /* Выравниваем кнопки по центру */
+  gap: 1vw;
+  margin-top: 0.5vw;
+}
+
+button {
+  padding: 0.5vw 1vw;
+  font-size: 1.2vw;
+  background: linear-gradient(47deg, rgb(94, 179, 94), rgb(106, 175, 26), rgb(226, 241, 11));
+  color: rgb(47, 0, 255);
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  width: 14vw;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(40deg, rgb(143, 252, 143), rgb(72, 119, 18), rgb(248, 248, 162));
+}
+
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+.result {
+  font-size: 2vw;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  /* Зафиксировано в центре экрана */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Центрируем */
+  width: auto;
+  padding: 2vw 2vw;
+  border-radius: 10px;
+  z-index: 100;
+  /* Поверх всех элементов */
+  transition: all 0.5s ease-out;
+}
+
+/* Скрытое состояние (начальное) */
+.result-hidden {
+  font-size: 2vw;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Видимое состояние */
+.result-visible {
+  font-size: 6vw;
+  color: chartreuse;
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Затемненный фон */
+}
+
+.gameOverText {
+
+  transform: translate(-50%, -50%);
+
+
+  transition: font-size 0.5s ease, opacity 0.5s ease;
+
+  background: linear-gradient(45deg, red, orange, yellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Использование Media Queries для разных экранов */
+
+@media (max-width: 30vw) {
+  .card {
+    width: 25vw;
+    height: 29vw;
+    /* Уменьшаем размер карты для маленьких экранов менее 300px */
+  }
+}
+
+
+/* Адаптивные стили с использованием vw */
+/* Адаптивные стили с использованием vw */
+@media (max-width: 60vw) and (min-width:30vw) {  /* Для экранов менее 960px */
+  .card {
+    width: 12vw;  /* Уменьшаем размер карты для маленьких экранов */
+    height: 18vw;  /* Уменьшаем высоту */
+  }
+}
+
+@media (min-width: 60vw) and (max-width: 90vw) {  /* Для экранов от 960px до 1440px */
+  .card {
+    width: 8vw;  /* Уменьшаем размер карты для экранов среднего размера */
+    height: 12vw;
+  }
+}

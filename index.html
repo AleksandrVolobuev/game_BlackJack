@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Карточная игра 21 (BlackJack) — Играйте онлайн</title>
+
+    <!-- Мета-теги SEO -->
+    <meta
+      name="description"
+      content="Играйте в карточную игру 21 (BlackJack) онлайн. Простой интерфейс, увлекательный геймплей и плавная анимация."
+    />
+    <meta
+      name="keywords"
+      content="BlackJack, карточная игра, 21 очко, играть онлайн, игры браузерные"
+    />
+    <meta name="author" content="Твоё Имя или Ник" />
+    <meta name="theme-color" content="#222" />
+
+    <!-- Добавление favicon -->
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="./assets/img/vip.png"
+      type="image/png"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script type="module" src="./assets/js/index.js"></script>
+  </head>
+
+  <body>
+    <div class="video-background" aria-hidden="true">
+      <video autoplay muted loop id="bg-video">
+        <source src="./assets/video/video.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+
+    <!-- Аудиофайлы -->
+    <audio
+      id="card-sound"
+      src="./assets/sounds/card.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="win-sound" src="./assets/sounds/win.mp3" preload="auto"></audio>
+    <audio
+      id="lose-sound"
+      src="./assets/sounds/lose.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="draw-sound"
+      src="./assets/sounds/draw.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="metal-sound"
+      src="./assets/sounds/metal-button-press.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="golos-sound"
+      src="./assets/sounds/golos-knopka.mp3"
+      preload="auto"
+    ></audio>
+
+    <!--<audio
+      id="bg-music"
+      src="
+      https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/lm3gg8abeuDXCWxJmNGN5YjMlPFSL6NS47dkDoDG.mp3?"
+      preload="auto"
+    ></audio>-->
+    <header>
+      <h1 class="title">Карточная игра 21 (BlackJack)</h1>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <section class="scoreboard" aria-label="Информация об очках">
+          <p class="score">Ваши очки: <span id="player-score">0</span></p>
+          <p class="score">
+            Очки противника: <span id="opponent-score">0</span>
+          </p>
+        </section>
+
+        <section class="cards" aria-label="Карты игрока и противника">
+          <div>
+            <h2 class="cards-title">Ваши карты</h2>
+            <div id="player-cards"></div>
+          </div>
+
+          <div>
+            <h2 class="cards-title">Карты противника</h2>
+            <div id="opponent-cards"></div>
+          </div>
+        </section>
+
+        <p class="result result-hidden" aria-live="polite"></p>
+
+        <section id="buttons" aria-label="Управление игрой">
+          <button class="draw-button">Взять карту</button>
+          <button class="pass-turn-button">Передать ход противнику</button>
+          <button id="bg-music">Включить/Выключить музыку</button>
+          <button class="end-game-button">Завершить игру</button>
+          <button class="new-game-button">Новая игра</button>
+          <audio id="background-music" loop>
+            <source
+              src="
+  https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/lm3gg8abeuDXCWxJmNGN5YjMlPFSL6NS47dkDoDG.mp3?"
+              type="audio/mpeg"
+            />
+            Ваш браузер не поддерживает аудио.
+          </audio>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Карточная игра BlackJack. Все права защищены.</p>
+    </footer>
+  </body>
+</html>
